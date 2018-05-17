@@ -14,6 +14,7 @@ const printBoard = () => {
 }
 
 const getInput = player => async () => {
+
   const {turn} = game.getState()  
   if (turn !== player) return
   const ans = await inquirer.prompt([{
@@ -25,7 +26,7 @@ const getInput = player => async () => {
   game.dispatch(move(turn, [row, col]))
 }
 
-// Create the store
+// Create the store 
 const game = createStore(gameReducer)
 
 // Debug: Print the state
